@@ -146,7 +146,7 @@ void Motor_start(void)
 	
 	delay_ms(100);
 	MOTOR_PWM+=150;
-	
-	delay_ms(100);
-	MOTOR_PWM+=150;
+//	
+//	delay_ms(100);
+//	MOTOR_PWM+=150;
 }

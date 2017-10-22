@@ -22,18 +22,30 @@ int main(void)
 //	EXTI_Key_Config();                             //按键外部中断
 	TIM2_PWM_Init(20000-1,84-1,1500);  					   //舵机 50Hz 
  	TIM4_PWM_Init(10000-1,42-1,3000);              //电机 200Hz
-	TIM3_Config(10000-1,8400-1);   							   //定时计算fps
+ 	TIM3_Config(10000-1,8400-1);   							   //定时计算fps
   SCCB_Init();                                   //SCCB 初始化
 	Ov7725_GPIO_Config();                          //OV7725 IO 初始化
 	
 	LED_ON;
 	while(Ov7725_Init() != SUCCESS);               // ov7725 寄存器配置初始化 
 	LED_OFF;
-	
+
+
 	VSYNC_Init();	
 	Ov7725_vsync = 0;                              // ov7725 场信号线初始化 
+//	if( Ov7725_vsync == 2 )											 //图像写入FIFO完成标志，开始获取图像并处理
+//		{		
+//			Get_Image_Data();	
+//			Ov7725_vsync = 0;			                     //图像处理完成，开始往FIFO写入数据
+//		}
+//		delay_ms(3000);
+//		if( Ov7725_vsync == 2 )											 //图像写入FIFO完成标志，开始获取图像并处理
+//		{		
+//			Get_Image_Data();					
+//			Ov7725_vsync = 0;			                     //图像处理完成，开始往FIFO写入数据
+//		}
+	Motor_start();   //启动电机
 	
-	Motor_start();                                 //启动电机
 /******************************配置完成***************************************/	                                      
 	while(1)
 	{

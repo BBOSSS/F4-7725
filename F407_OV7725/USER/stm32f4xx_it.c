@@ -42,11 +42,11 @@ void TIM3_IRQHandler(void)
 	if(TIM_GetITStatus(TIM3,TIM_IT_Update)==SET) //溢出中断
 	{
 		time1++;
-		if( time1 == 8 ) //30s计时停止电机
+		if( time1 == 5 ) //30s计时停止电机
 		{
 //			time1 = 0;
 			stop_flag = 1;
-			MOTOR_PWM = 3000;
+//			MOTOR_PWM = 3000;
 		}
 		LED_TOGGLE;//DS1翻转
 //		printf("\n\r FPS = %d \r\n",fps);
