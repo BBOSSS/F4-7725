@@ -15,6 +15,7 @@ typedef struct Reg
 /* ¼Ä´æÆ÷²ÎÊıÅäÖÃ */
 Reg_Info Sensor_Config[] =
 {
+	{COM7,      0x80},/*Reset all reg*/
 	{CLKRC,     0x00}, /*clock config*/
 	{COM7,      0x40}, /*QVGA  YUV422*/
   {HSTART,    0x3f},

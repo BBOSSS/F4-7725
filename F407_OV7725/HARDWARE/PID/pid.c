@@ -29,7 +29,7 @@ void servo_control(void)
 	if( front_flag==1 )
 	{
 		temp = 1650;
-		front_flag = 2;
+		front_flag = 2; //一次触发即关闭前瞻
 	}
 	SERVO_PWM = temp;
 }
@@ -42,7 +42,6 @@ void motor_control(void)
 	else if((final_flag_white > 5)&&(final_flag_black > 2))
 	{
 		MOTOR_PWM = 2800;
-		//MOTOR_PWM = 3000;
 	}	
 	
 	else if(current_err < -10)
@@ -56,7 +55,6 @@ void motor_control(void)
 	else 
 		MOTOR_PWM = 3650;
 	
-	//final_flag=0;
 }
 
 
